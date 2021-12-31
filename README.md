@@ -1,1 +1,1 @@
-# windowsgsm-RustOxideWithRustEdit
+# WindowsGSM RustOxideWithRustEdit Plugin
