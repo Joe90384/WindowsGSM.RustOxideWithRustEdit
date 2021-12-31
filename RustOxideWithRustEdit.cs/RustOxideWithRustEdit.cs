@@ -36,7 +36,7 @@ namespace WindowsGSM.Plugins
             author = "Joe 90",
             description = "WindowsGSM plugin for supporting Rust Server with Oxide and RustEdit",
             version = "0.1",
-            url = "", // Github repository link (Best practice)
+            url = "https://github.com/Joe90384/WindowsGSM-RustOxideWithRustEdit", // Github repository link (Best practice)
             color = "#ef2900" // Color Hex
         };
 
