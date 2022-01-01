@@ -9,7 +9,7 @@ This is a plugin for [WindowsGSM](https://windowsgsm.com/) which allows you to:
 
 ##Getting started
 1. Download this project as a zip file
-2. Click the <span style='background:---; border:1 1 solid #000'><img src="https://raw.githubusercontent.com/WindowsGSM/WindowsGSM/master/WindowsGSM/Images/HMenu/ViewPlugins.ico" width=25/></span> button in Windows GSM
+2. Click the <img src="https://raw.githubusercontent.com/WindowsGSM/WindowsGSM/master/WindowsGSM/Images/HMenu/ViewPlugins.ico" width="25" style='background:#00000060;border:5px solid #00000000'/> button in Windows GSM
 3. Click "Import Plugin" and select the zip file you downloaded
 4. RustOxideWithRustEdit should have been added to your "Loaded Plugin List"
 
@@ -42,7 +42,7 @@ Wipes will occur at the next restart after a scheduled wipe. For this to work th
 5. Rename this to auto_wipe.cfg
 6. Adjust the setting to match your requirements
 
-###Wipe Schedule options
+##Wipe Schedule options
 The wipe schedule is a json file with each schedule being an json object.
 ```json
   "[Schedule Name]": { 
@@ -76,7 +76,7 @@ Once the server has run up at least once you will see an additional property add
   * This indicates the next schedule wipes date and time.
 
 
-###auto_wipe.template.cfg
+##auto_wipe.template.cfg
 ```json
 {
   "Map Wipe": {                                       // Name for this wipe schedule (must be unique)
