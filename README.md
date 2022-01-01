@@ -9,7 +9,7 @@ This is a plugin for [WindowsGSM](https://windowsgsm.com/) which allows you to:
 
 ## Getting started
 1. Download this project as a zip file
-2. Click the <img src="https://raw.githubusercontent.com/WindowsGSM/WindowsGSM/master/WindowsGSM/Images/HMenu/ViewPlugins.ico" width="25" style='background:#00000060;border:5px solid #00000000'/> button in Windows GSM
+2. Click the Plugin button in Windows GSM
 3. Click "Import Plugin" and select the zip file you downloaded
 4. RustOxideWithRustEdit should have been added to your "Loaded Plugin List"
 
