@@ -1,19 +1,19 @@
 # WindowsGSM RustOxideWithRustEdit Plugin
 ![Logo](https://github.com/Joe90384/WindowsGSM.RustOxideWithRustEdit/blob/main/RustOxideWithRustEdit.cs/RustOxideWithRustEdit.png?raw=true)
 
-##What can it do
+## What can it do
 This is a plugin for [WindowsGSM](https://windowsgsm.com/) which allows you to:
 * Create a new Rust server [Oxide](https://umod.org/) and [RustEdit](https://www.rustedit.io/)
 * Auto update Oxide and RustEdit to the latest version
 * Schedule automatic wipes of maps, blueprints
 
-##Getting started
+## Getting started
 1. Download this project as a zip file
 2. Click the <img src="https://raw.githubusercontent.com/WindowsGSM/WindowsGSM/master/WindowsGSM/Images/HMenu/ViewPlugins.ico" width="25" style='background:#00000060;border:5px solid #00000000'/> button in Windows GSM
 3. Click "Import Plugin" and select the zip file you downloaded
 4. RustOxideWithRustEdit should have been added to your "Loaded Plugin List"
 
-##Creating a new server
+## Creating a new server
 1. Click the "Servers" menu at the top of the window
 2. Click "<img src="https://raw.githubusercontent.com/WindowsGSM/WindowsGSM/master/WindowsGSM/Images/Install.ico" width=25/> <b>Install Game Server</b>" from the menu
 3. Click the Game Server dropdown and select "Rust Dedicated Server with Oxide and RustEdit [RustOxideWithRustEdit.cs]"
@@ -21,7 +21,7 @@ This is a plugin for [WindowsGSM](https://windowsgsm.com/) which allows you to:
 5. Click "Install"
 6. You server should now be created and will also install the latest version of Oxide and RustEdit
 
-##Migrating an existing "Rust Dedicated Server" that was installed with WindowsGSM
+## Migrating an existing "Rust Dedicated Server" that was installed with WindowsGSM
 1. Identify the ID of the server you wish to migrate
 2. Open the WindowsGSM folder in windows explorer
 3. Navigate to servers/[serverid]/configs
@@ -32,7 +32,7 @@ This is a plugin for [WindowsGSM](https://windowsgsm.com/) which allows you to:
 7. Select the server and click the "Update" button
 8. This should install the latest versions of Oxide and RustEdit onto the server
 
-##Configuring the wipe schedule
+## Configuring the wipe schedule
 Wipes will occur at the next restart after a scheduled wipe. For this to work the server must be start by WindowsGSM
 
 1. Identify the ID of the server you wish to set a wipe schedule on
@@ -42,7 +42,7 @@ Wipes will occur at the next restart after a scheduled wipe. For this to work th
 5. Rename this to auto_wipe.cfg
 6. Adjust the setting to match your requirements
 
-##Wipe Schedule options
+## Wipe Schedule options
 The wipe schedule is a json file with each schedule being an json object.
 ```json
   "[Schedule Name]": { 
@@ -76,7 +76,7 @@ Once the server has run up at least once you will see an additional property add
   * This indicates the next schedule wipes date and time.
 
 
-##auto_wipe.template.cfg
+### auto_wipe.template.cfg
 ```json
 {
   "Map Wipe": {                                       // Name for this wipe schedule (must be unique)
