@@ -79,17 +79,17 @@ Once the server has run up at least once you will see an additional property add
 ### auto_wipe.template.cfg
 ```json
 {
-  "Map Wipe": {                                       // Name for this wipe schedule (must be unique)
-    "weeks": [2,4],                                   // Wipe on 2nd and 4th weeks
-    "day": 4,                                         // Wipe on Thursday (0 - 6 => Sunday - Saturday)
-    "time": "12:00",                                  // Wipe at next restart after 12:00 (midday server time)
-    "files": ["*.sav"]                                // Wipe map only
+  "Map Wipe": {                              // Name for this wipe schedule (must be unique)
+    "weeks": [2,4],                          // Wipe on 2nd and 4th weeks
+    "day": 4,                                // Wipe on Thursday (0 - 6 => Sunday - Saturday)
+    "time": "12:00",                         // Wipe at next restart after 12:00 (midday server time)
+    "files": ["*.sav"]                       // Wipe map only
   },
-  "BP Wipe": {                                        // Name for this wipe schedule (must be unique)
-    "weeks": [0,2,4],                                 // Wipe on 1st, 3rd and 5th weeks
-    "day": 4,                                         // Wipe on Thursday
-    "time": "18:29",                                  // Wipe at next restart after 12:00 (midday server time)
-    "files": ["*.db","*.sav","*.db-journal"]          // Wipe map and blueprints
+  "BP Wipe": {                               // Name for this wipe schedule (must be unique)
+    "weeks": [0,2,4],                        // Wipe on 1st, 3rd and 5th weeks
+    "day": 4,                                // Wipe on Thursday
+    "time": "12:00",                         // Wipe at next restart after 12:00 (midday server time)
+    "files": ["*.db","*.sav","*.db-journal"] // Wipe map and blueprints
   }
 }
 ```
