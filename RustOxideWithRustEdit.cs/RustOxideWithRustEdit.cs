@@ -27,16 +27,14 @@ namespace WindowsGSM.Plugins
         public string Additional = string.Empty;
 
         public string Error, Notice;
-        //Extension of the Rust server type
-
-        // - Plugin Details
+        
         public Plugin Plugin = new Plugin
         {
-            name = "WindowsGSM.RustOxideWithRustEdit", // WindowsGSM.XXXX
+            name = "WindowsGSM.RustOxideWithRustEdit",
             author = "Joe 90",
             description = "WindowsGSM plugin for supporting Rust Server with Oxide and RustEdit",
             version = "0.1",
-            url = "https://github.com/Joe90384/WindowsGSM-RustOxideWithRustEdit", // Github repository link (Best practice)
+            url = "https://github.com/Joe90384/WindowsGSM-RustOxideWithRustEdit",
             color = "#ef2900" // Color Hex
         };
 
@@ -141,8 +139,7 @@ namespace WindowsGSM.Plugins
         private async Task WipeServerFiles(string name, WipeSchedule schedule)
         {
             var serverFileDirectoryInfo =
-                new DirectoryInfo(ServerPath.GetServersServerFiles(_serverData.ServerID, "server"))
-                    .GetDirectories().FirstOrDefault();
+                new DirectoryInfo(ServerPath.GetServersServerFiles(_serverData.ServerID, "server", _serverData.ServerID));
             var autoWipeLog = ServerPath.GetServersServerFiles(_serverData.ServerID, "auto_wipe.log");
             using (var logWriter = new StreamWriter(autoWipeLog, true))
             {
@@ -170,7 +167,7 @@ namespace WindowsGSM.Plugins
             {
                 for (var index = 0; index < schedule.Weeks.Length; index++)
                 {
-                    var week = schedule.Weeks[index];
+                    var week = schedule.Weeks[index] - 1;
                     var day = 7 * week + 1;
                     if (day < 1) day = 1;
                     var wipeDate = new DateTime(today.Year, today.Month, day, 0, 0, 0);
@@ -221,7 +218,28 @@ namespace WindowsGSM.Plugins
             var process = await steamCMD.Install(_serverData.ServerID, string.Empty, AppId);
             Error = steamCMD.Error;
             await InstallOxideAndRustEdit();
+            WriteWipeConfigTemplate();
             return process;
+        }
+
+        public void WriteWipeConfigTemplate()
+        {
+            var wipeTemplateFile = ServerPath.GetServersConfigs(_serverData.ServerID, "auto_wipe.template.cfg");
+            var wipeTemplateContent = @"{
+  ""Map Wipe"": {                                       // Name for this wipe schedule (must be unique)
+    ""weeks"": [2,4],                                   // Wipe on 2nd and 4th weeks
+    ""day"": 4,                                         // Wipe on Thursday (0 - 6 => Sunday - Saturday)
+    ""time"": ""12:00"",                                // Wipe at next restart after 12:00 (midday server time)
+    ""files"": [""*.sav""]                              // Wipe map only
+  },
+  ""BP Wipe"": {                                        // Name for this wipe schedule (must be unique)
+    ""weeks"": [1,3,5],                                 // Wipe on 1st, 3rd and 5th weeks
+    ""day"": 4,                                         // Wipe on Thursday
+    ""time"": ""12:00"",                                // Wipe at next restart after 12:00 (midday server time)
+    ""files"": [""*.db"",""*.sav"",""*.db-journal""]    // Wipe map and blueprints
+  }
+}";
+            File.WriteAllText(wipeTemplateFile, wipeTemplateContent);
         }
 
         public async Task<Process> Update(bool validate = false, string custom = null)
